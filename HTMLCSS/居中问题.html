@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            text-align: center;
+            line-height: 200px;
+        }
+        span{
+            background: red;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: brown;
+            overflow: hidden;
+        }
+        .div3{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            margin: 50px auto;
+
+        }
+        .div6{
+            width: 200px;
+            height: 200px;
+            background: brown;
+            overflow: hidden;
+        }
+        .div7{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            margin: 50px 50px;
+
+        }
+        .div4{
+            width: 200px;
+            height: 200px;
+            background: blueviolet;
+            position: relative;
+        }
+        .div5{
+            width: 100px;
+            height: 100px;
+            background: cornflowerblue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+        .div8{
+            width: 200px;
+            height: 200px;
+            background: fuchsia;
+        }
+        .div9{
+            width: 100px;
+            height: 100px;
+            background: tomato;
+            transform: translate(50%,50%);
+        }
+    </style>
+</head>
+<body>
+<!--居中-->
+
+<!--行及元素在块级元素居中：父元素 text-align: center;（水） line-height: 高（垂）;-->
+
+<div id="div1">
+    <span>span</span>
+</div>
+
+<!--块级在块级居中-->
+<!--父子宽都知道-->
+<!--法1.子元素：margin 父高-子高/2 auto  父元素：overflow：hidden-->
+<!--法2.子元素：margin 父高-子高/2 父宽-子宽/2 父元素：overflow：hidden-->
+<div class="div2">
+    <div class="div3"></div>
+</div>
+
+<div class="div6">
+    <div class="div7"></div>
+</div>
+
+<!--子宽知道，父随意-->
+<!--法3.父相子绝，子：left:50% top:50% ml:-宽/2 ； mt：-高/2；-->
+<div class="div4">
+    <div class="div5"></div>
+</div>
+
+<!--父子宽高都不知-->
+<!--4.子元素transform: translate(50%,50%);-->
+<div class="div8">
+    <div class="div9"></div>
+</div>
+</body>
+</html>
