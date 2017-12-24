@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span{
+            background:red;
+            margin-top: 100px;
+            /*margin-left: 100px;*/
+            padding-left: 100px;
+            padding-right: 100px;
+            /*padding-top: 100px;*/
+            padding-bottom: 100px;
+            display: block;
+        }
+        a{
+            padding-top: 100px;
+            background: yellow;
+            padding-left:100px;
+            padding-right: 100px;
+            padding-bottom:100px;
+        }
+        p{
+            background: blue;
+            margin-top: 200px;
+        }
+        h1 {
+            background:darkorange;
+        }
+        div{
+            background: aqua;
+        }
+        input{
+
+            background: purple;
+        }
+        button{
+
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <!--行及元素 span a textarea-->
+    <!--行及元素和行及元素占一行 不能设置宽高，宽高内容撑开，margin-top/,margin-bottom不好使,padding-top不好使达不到想要的高度-->
+    <span>我是行及元素</span>
+    <a href="www.baidu.com">baidu</a>
+
+    <!--块级元素 p div h1~h6 ol ul li-->
+    <!--块级元素自己占一行，能设置宽高，不设置宽宽充满父元素，不设置高内容撑开的-->
+    <p>12345679</p>
+    <!--p里放别的块级元素p样式就没有了,继承不下去,放行及元素依然有样式-->
+    <p> <h1>888</h1></p>
+    <p> <div>889999</div></p>
+
+    <!--替换元素、行块级元素 img button input-->
+    <!--既有行及元素特点（和行及元素占一行），又能设置宽高-->
+    <img src="../总复习/1.jpg" alt="图片加载失败">
+<p> <img src="../总复习/1.jpg" alt="图片加载失败" align="middle">文本居中 </p>
+<p> <img src="../总复习/1.jpg" alt="图片加载失败" align="top">文本居上 </p>
+<p> <img src="../总复习/1.jpg" alt="图片加载失败" align="bottom">文本居下 </p>
+    <input type="text">
+    <button>btn</button>
+
+</body>
+</html>
