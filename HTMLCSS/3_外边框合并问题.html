@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            background:moccasin;
+            width: 100px;
+            height: 100px;
+            margin-bottom:50px;
+            /*display: inline-block;*/
+
+
+        }
+        #div2{
+            /*position: absolute;*/
+            /*position: fixed;*/
+            /*float: left;*/
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: gray;
+            margin-top:50px;
+        }
+        #div3{
+            background:moccasin;
+            width: 100px;
+            height: 100px;
+            /*margin-top:50px;*/
+            /*overflow: hidden;*/
+            /*float: left;*/
+            /*position: fixed;*/
+            position: absolute;
+            /*border: 1px solid transparent;*/
+        }
+        #div4{
+            /*border: 1px solid;*/
+            width: 50px;
+            height: 50px;
+            background: gray;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+<!-- 兄弟元素外边框合并问题  上mt/下mb 取大的-->
+<!-- 1.下边元素脱离文档流 : position: absolute;  fixed; float: left; -->
+<!-- 2.上或下display: inline-block; -->
+<div id="div1"></div>
+<div id="div2"></div>
+
+<!-- 父子外边框合并问题-->
+<!--无论父元素设不设上外边距，都以儿子为主，跟儿子的上外边距一起掉下来-->
+<!--1.给父元素加overflow：hidden-->
+<!--2.给父元素加border：1px solid transparent-->
+<!--3.让父元素脱离文档流： float：left； position：absolute/fixed-->
+<div id="div3">
+    <div id="div4"></div>
+</div>
+
+</body>
+</html>
