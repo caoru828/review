@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 100%;
+        }
+        #div_father{
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+        }
+        #div1{
+            height: 200px;
+            background: #cccccc;
+            /*position: fixed;*/
+            /*top: 0;*/
+            width: 100%;
+        }
+        #dov3{
+            height: 200px;
+            background: yellow;
+            /*position: fixed;*/
+            /*bottom: 0;*/
+            width: 100%;
+        }
+        #div2{
+            flex-grow: 1;
+
+            background: blue;
+
+            /*position: absolute;*/
+            /*left: 0;*/
+            /*right: 0;*/
+            /*top: 200px;*/
+            /*bottom: 200px;*/
+            /*overflow: scroll; !*这是多出来的不分产生滚动条*!*/
+            overflow-y: scroll; /*只是垂直方向*/
+            /*overflow: hidden;*/
+
+        }
+    </style>
+</head>
+<body>
+<!--1.定位，上下固定定位，上top：0，下bottom：0，他俩脱离文档流，每宽（宽内容撑开）-->
+<!--宽设成100%（要把body，html设成100%），把中间绝对定位，top：上的高度，bottom：下的高度、宽设成100%（脱离文档流，宽由内容撑开，也可以距离左边是0，右边是0）-->
+
+<div id="div_father">
+    <div id="div1">左</div>
+    <div id="div2">中
+        <!--中间东西多的时候就不见了，需要加个属性-->
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        <p>sss</p>
+        中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中中</div>
+    <div id="dov3">右</div>
+</div>
+
+</body>
+</html>
