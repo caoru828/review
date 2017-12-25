@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            height: 300px;
+        }
+        #div_father{
+            display: flex;
+        }
+        #div1{
+            background: red;
+            width: 200px;
+            /*float: left;*/
+            position: absolute;
+            left: 0;
+        }
+        #dov3{
+             background: green;
+             width: 200px;
+             /*float: right;*/
+            position: absolute;
+            right: 0;
+          }
+        #div2{
+            flex-grow: 1;
+            margin-left: 201px;
+            margin-right: 201px;
+            background: gainsboro;
+        }
+
+    </style>
+</head>
+<body>
+<!--1.左右浮动，中间不设宽，（dom结构要把有放前边，因为右要先浮动）-->
+<!--2.左右绝对定位（左在坐上，又在右上），中间加margin-left和margin-right-->
+<!--3.弹性盒模型，爸爸display：flex  左右儿砸宽高固定，中儿砸分份{ flex-grow：1}-->
+<div id="div_father">
+    <div id="div1">左</div>  <div id="div2">中</div>
+    <div id="dov3">右</div>
+</div>
+
+
+</body>
+</html>

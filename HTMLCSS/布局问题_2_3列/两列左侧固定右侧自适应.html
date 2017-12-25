@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div3{
+            /*display: flex;*/
+        }
+        #div1{
+            width: 200px;
+            background: yellow;
+            height: 200px;
+            /*float: left;*/
+            /*position: absolute;*/
+        }
+        #div2{
+            /*flex-grow: 1;*/
+            margin-left: 201px;
+            margin-top: -200px;
+            background: red;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<!--1.左浮动，右加margin-left（目的左脱离文档流）-->
+<!--2.左绝对定位，右加margin-left（目的左脱离文档流）（固定定位也行）-->
+<!--3.弹性盒模型，加个爸爸，爸爸display：flex；大儿子设置宽，二儿子{flex-grow：1}-->
+<!--4.左设置完，右加margin-left和margin-top（这个设成负的）-->
+<div id="div3">
+    <div id="div1"></div>
+    <div id="div2"></div>
+</div>
+
+</body>
+</html>
