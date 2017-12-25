@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    </style>
     <script>
 //        把js写在这是，代码从上往下执行，有可能js比较复杂，html不能立马执行，
 //        而加个window.onload = function(){},是等到dom结构资源文件都加载完成才能执行，
@@ -76,8 +81,39 @@
 //    document.body.removeChild(div2);
 
 //    替换节点
-    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,replacenew)
+//    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,replacenew)
 
+
+//    事件
+
+//    onLoad
+//      var oImg= new Image();
+//    oImg.onload = function () {
+//
+//    }
+//    oImg.src = "xx.jpg"
+
+
+    window.onresize = function () {   //浏览器窗口发生变化时
+//        console.log(document.body.clientWidth)
+//        console.log(document.body.clientHeight)
+    }
+
+//    onscroll
+    window.onscroll = function () {//document.documentElement获取的是HTML
+        iScrollTop = document.documentElement.scrollTop||document.body.scrollTop;
+        console.log(iScrollTop);
+    }
+
+//    oncontentmenu 右键    右键时阻止浏览器的默认行为用的
+
+
+//    事件源 事件处理函数 事件对象
+    Codiv.onclick = function (e) {
+//        e.target标准
+        var target = e.target || window.event.srcElement;
+        console.log(target);
+    }
 </script>
 </body>
 </html>
