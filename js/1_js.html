@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//        把js写在这是，代码从上往下执行，有可能js比较复杂，html不能立马执行，
+//        而加个window.onload = function(){},是等到dom结构资源文件都加载完成才能执行，
+//        而放在</body>上方只要dom结构加载完成就能执行
+//        window.onload=function () {
+//          而加个window.onload = function(){},是等到dom结构资源文件都加载完成才能执行，
+//        }
+
+
+    </script>
+</head>
+<body>
+<p id="id"></p>
+<div></div>
+<div></div>
+<div></div>
+
+<script>
+    //        而放在</body>上方只要dom结构加载完成就能执行
+//     基本类型  string number boolean null undefined
+    var oDiv = document.getElementById("dd");
+    var a;
+    console.log(oDiv);//null 找了没找到
+    console.log(a);   // undefined 找到了，没有值
+    console.log(a==oDiv);//true  判断值是否相等
+    console.log(a===oDiv);//false  判断值和类型是否相等
+//    基本数据类型放在栈里，引用数据类型放在堆里（object）
+
+
+
+//navigator.userAgent判断URL地址
+
+//    浏览器内核  IE  -->Trident
+//               Firefox-->Gecko  壁虎
+//               opera --> presto
+//               google safari  -->webkit
+
+    var obj1 = document.getElementById("id");
+    var aDiv = document.getElementsByTagName("div");//节点列表
+//    document.getElementsByClassName("aa")//兼容性
+//    document.getElementsByName()//兼容性
+//    document.querySelector("#id");//兼容性
+//    document.querySelectorAll(".aa")//兼容性
+
+    console.log(aDiv.constructor)//输出的不是array
+    var arr[1,2,3,4];
+    console.log(arr.constructor);//array  constructor 属性返回对创建此对象的数组函数的引用。
+
+</script>
+</body>
+</html>
