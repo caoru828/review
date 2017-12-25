@@ -50,7 +50,8 @@
 <body>
 <!--1.定位，上下固定定位，上top：0，下bottom：0，他俩脱离文档流，每宽（宽内容撑开）-->
 <!--宽设成100%（要把body，html设成100%），把中间绝对定位，top：上的高度，bottom：下的高度、宽设成100%（脱离文档流，宽由内容撑开，也可以距离左边是0，右边是0）-->
-
+<!--2.弹性盒模型 ，爸爸：  display：flex； flex-direction:column(新版本)  旧版本是horizantal-->
+<!--山下儿子设置宽高，中儿砸分份{flex-grow：1}，爸爸和body，html高设成100%-->
 <div id="div_father">
     <div id="div1">左</div>
     <div id="div2">中
