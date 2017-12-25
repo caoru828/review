@@ -19,7 +19,11 @@
 <div></div>
 <div></div>
 <div></div>
-
+<h1 class="rr"></h1>
+<h1 class="rr"></h1>
+<h1 class="rr"></h1>
+<h1 class="rr"></h1>
+<h1 class="rr"></h1>
 <script>
     //        而放在</body>上方只要dom结构加载完成就能执行
 //     基本类型  string number boolean null undefined
@@ -42,14 +46,37 @@
 
     var obj1 = document.getElementById("id");
     var aDiv = document.getElementsByTagName("div");//节点列表
-//    document.getElementsByClassName("aa")//兼容性
-//    document.getElementsByName()//兼容性
+    var rr = document.getElementsByClassName("rr")//兼容性  //节点列表
+//    document.getElementsByName()//兼容性   节点列表
 //    document.querySelector("#id");//兼容性
 //    document.querySelectorAll(".aa")//兼容性
-
+    console.log(rr.constructor);
+    console.log(rr.item(1))//节点列表用item(index)访问
+    console.log(rr.item(2))
+    console.log(rr.item(3))
     console.log(aDiv.constructor)//输出的不是array
-    var arr[1,2,3,4];
+    var arr=[1,2,3,4];
     console.log(arr.constructor);//array  constructor 属性返回对创建此对象的数组函数的引用。
+
+//    nodeType  元素节点1  文本节点3（空白）
+//    firstchild  lastchild也有兼容性问题  children没有兼容性问题（获取元素节点的孩子）
+
+
+//  创建节点
+    var Codiv = document.createElement("div");
+    Codiv.innerHTML = "adadfasdf";
+    document.body.appendChild(Codiv);
+
+//    在一个节点的前面插入一节点
+    var div2 = document.createElement("div");
+    div2.innerHTML="div2";
+    document.body.insertBefore(div2,Codiv);//(new,master)
+
+//    移除div2
+//    document.body.removeChild(div2);
+
+//    替换节点
+    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,    Codiv.parentNode.replaceChild(div2,Codiv)//replacenew.parentNode.repaceChild(old,replacenew)
 
 </script>
 </body>
