@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            float: left;
+        }
+        .ul1{
+            /*float: left;*/
+            /*height: 300px;*/
+        }
+        .clearfix::after{
+            content:'';
+            display:block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<!--浮动：浮动元素脱离文档流没有东西撑着父元素，父元素高度变成0，（元素塌陷）
+
+解决元素塌陷问题：
+1.父元素写死高度
+2.给父元素也浮动。position:absolute
+3.给父元素添加clearfix
+-->
+<ul class="ul1 clearfix">
+    <li>11</li>
+    <li>22</li>
+    <li>32</li>
+</ul>
+<div>555</div>
+</body>
+</html>
