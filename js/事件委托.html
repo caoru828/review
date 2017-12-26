@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+<script>
+    var oUl = document.getElementById("ul1");
+    var aLi = oUl.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;//自定义属性的方法
+//        aLi[i].onclick = function () {  //不用事件委托
+//            console.log(this.index)
+//        }
+//        (function (idx) {//闭包解决？？？
+//            aLi[idx].onclick = function () {
+//                console.log(idx);
+//            }
+//        })()
+    }
+
+    oUl.onclick = function (e) { //事件委托
+
+        var target = e.target||window.event.srcElement;//事件源
+//        console.log(target.innerHTML);
+        console.log(target.index);
+
+    }
+
+</script>
+</body>
+</html>
