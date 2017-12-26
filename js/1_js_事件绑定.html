@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: yellow;
+        }
+        #div2{
+            width: 300px;
+            height: 300px;
+            background: blue;
+        }
+        #div3{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <div id="div2">
+        <div id="div3"></div>
+    </div>
+</div>
+
+<script>
+    var oDiv1 = document.getElementById("div1");
+    var oDiv2 = document.getElementById("div2");
+    var oDiv3 = document.getElementById("div3");
+//  同一个事件多次绑定覆盖了，只弹出2222
+//    oDiv1.onclick = function () {
+//        alert("555");
+//    }
+//    oDiv1.onclick = function () {
+//        alert("2222")
+//    }
+
+//    还可以用addEventListener绑定事件，解决多次绑定不覆盖问题
+//    oDiv1.addEventListener("click",function () {
+//        alert("div1");
+//    },true);
+//    oDiv1.addEventListener("click",function () {
+//        alert("div1111")
+//    })
+
+//    事件冒泡和捕获,点击最里边的元素，事件会从里往外传播，默认事件冒泡addEventListener第三个参数是false  ，
+//    相反true是事件捕获，事件从外往里传播
+//    oDiv2.addEventListener("click",function (e) {
+//        alert("div2")
+//    e.stopPropagation();//阻止事件冒泡
+//    },true);
+//    oDiv3.addEventListener("click",function () {
+//        alert("div3")
+//    },true);
+
+
+//    先捕获后冒泡
+
+//    早期IE绑定事件attachEvent
+//    oDiv1.attachEvent("onclick",function () {
+//        alert("ddd");
+//    window.event.cancelBubble = true;//IE阻止事件冒泡
+//    })
+
+
+
+    //  封装绑定事件函数解决兼容性问题
+
+//    addEvent(oDiv3,"click",function () {
+//    alert(this)
+//    console.log(this);
+//////    标准浏览器返回事件源，早IE返回window
+//})
+
+
+
+    function addEvent(elem,type,handler) {
+        if(elem.addEventListener){
+            elem.addEventListener(type,handler)
+        }else if(elem.attachEvent){   // this指向和顺序反了（同时给一个对象绑定事件IE下的attachedEvent反过来），后绑定的先执行
+//            elem.attachEvent("on"+type,handler)
+//            elem.attachEvent("on"+type,function () {
+//                handler.call(elem);// 解决this指向问题  . 移除有问题
+
+//           为了移除方便（为了绑定和移除是同一个事件，给对象自定义属性，移除时移除这个属性）
+//                elem.xx = function () {
+                elem[type+handler] = function () {
+                    handler.call(elem);
+                }
+            elem.attachEvent("on"+type,elem[type+handler])  //还是有问题，elem.xx是同一个，如果一个对象绑定多个事件，移除时就有问题
+//            })
+
+
+        }else{
+            elem["on"+type] = handler;
+        }
+    }
+
+//
+
+
+    //    移除事件
+
+    var fn1 = function () {
+        alert("div11")
+    };
+    var fn2 = function () {
+        alert("4444555")
+    };
+    // 标准
+//    oDiv1.addEventListener("click",fn1);
+//    oDiv1.removeEventListener("click",fn1);// 保证绑定和移除的事件是同一个事件，fn最好放在外边
+//    //    IE
+//    oDiv1.attachEvent("click",fn1);
+//    oDiv1.detachEvent("click",fn1);
+        addEvent(oDiv3,"click",fn1);
+        addEvent(oDiv3,"click",fn2);
+        removeEvent(oDiv3,"click",fn1);
+        removeEvent(oDiv3,"click",fn2);
+
+//    封装移除函数，解决掉兼容问题
+    function removeEvent(elem, type, handler) {
+        if(elem.removeEventListener){
+            elem.removeEventListener(type,handler);
+        }else if(elem.detachEvent){
+//            elem.detachEvent("on"+type,elem.xx);//绑定和移除不是同一个
+            elem.detachEvent("on"+type,elem[type+handler]);//解决绑定多事件时
+
+//        不是很完善，handler 要是一抹一样，多个事件的就移除不了
+
+        }else{
+            elem["on"+type] = null;
+        }
+    }
+
+
+//    call apply bind
+    function fn(arg,arg2) {
+        console.log(this);
+        console.log(arg);
+        console.log(arg2);
+    }
+
+    var obj = {
+        name:"zhangsan",
+        age:18
+    }//new object
+//    fn本来是window 加call（obj）之后就this指向obj，并且call相当于函数调用
+//    fn.call();//call不传参数fn的this指向window,传参数第一个参数是this指向，往后的参数是函数参数调用
+//    fn.call(obj,"aaa","dfdf")
+//    fn.apply(obj,["aaaa","dfsf"]);
+    fn.bind(obj,"aaa","dfdf");//和call方法一样，但是函数没有立即调用
+    fn.bind(obj,"aaa","dfdf")();//加个（）立即调用
+
+
+//    事件委托事件代理
+
+
+</script>
+</body>
+</html>
