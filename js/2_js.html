@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            background:red;
+            width:200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1"></div>
+<!--<div id="div1" style="background:red;width:200px;height: 200px;"></div>-->
+<script>
+    var oDiv1 = document.getElementById("div1");
+    console.log(oDiv1.style.width);//.style.属性只能取到内联样式
+    alert(getComputedStyle(oDiv1,null).width);//js获取css样式
+//    getComputedStyle(对象,null/false).属性  标准
+//    alert(oDiv1.currentStyle.width); //IE6获取css属性
+
+//    console.log(oDiv1.offsetWidth); // c+p+b
+//    oDiv1.offsetWidth  // c+p+b
+//    oDiv1.offsetHeight // c+p+b
+//    oDiv1.offsetLeft  //离他最近的已经定位的祖先元素的祖先元素的距离
+//    oDiv1.offsetTop   //离他最近的已经定位的祖先元素的祖先元素的距离
+//    oDiv1.offsetParent//离他最近的已经定位的祖先元素的祖先元素
+
+//   jq： width()        //c
+//   jq： innerWidth()   //c+p
+//   jq： outerWidth()   //c+p+b
+//   jq： outerWidth(true)//c+p+b+m
+
+</script>
+
+</body>
+</html>
