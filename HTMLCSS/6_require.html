@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<!--解决模块开发和依赖加载（）-->
+<!--解决模块化管理和依赖加载（）-->
 
 <script src="require.js" data-main="index"></script>
 <!--上边引入的是index.js 入口文件 -->
@@ -13,13 +13,33 @@
 <script>
     //index.js
     define(["a"],function (obj) {//obj是a返回的对象
-
+//        依赖前置（一上来就加载，不一定什么时候用到）
     });
     //a.js
     require(["jquery"],function ($) {//如果不再引入东西了[]里不写东西
         return obj;
     })
 
+    /*
+    sea.js
+
+    define(function(require){
+    fsd
+    rgerg
+    re
+    g
+    var  obj = require("a")
+//  依赖就近 (用到的时候再加载)
+    }
+
+    * */
+
+
+/*
+*AMD（异步模块定义）：依赖前置（一上来就加载，不一定什么时候用到）  require.js提出的
+*CMD（通用模块定义）：依赖就近 (用到的时候再加载，) sea.js  提出的
+*
+* */
 </script>
 </body>
 </html>
