@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--解决模块开发和依赖加载（）-->
+
+<script src="require.js" data-main="index"></script>
+<!--上边引入的是index.js 入口文件 -->
+
+<script>
+    //index.js
+    define(["a"],function (obj) {//obj是a返回的对象
+
+    });
+    //a.js
+    require(["jquery"],function ($) {//如果不再引入东西了[]里不写东西
+        return obj;
+    })
+
+</script>
+</body>
+</html>
