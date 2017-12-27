@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function A() {
+        this.name = "zahngsna";
+        this.hobby = ["dance","sing"];
+    }
+
+//    实现继承3步
+//    1.属性继承过来
+    function B() {
+//        this.name = 'sjx';
+//        console.log(this);
+//        console.log(this.name +' L R');
+        A.call(this);
+    }
+//  B.prototype = new A();  把B.用prototypenew A()替换了，
+//  原来的B.constructor是在原型下边的，B.prototype.construnctor,
+//  但是把原型换成A之后，B.constructor就是A.prototype.construnctor
+
+//    2.原型继承过来。
+    B.prototype = new A();   //new B()时，这个A下的this指向了B，所以，是B.name = "zahngsna";
+//                               这样就把A类的属性继承到B下边了
+//    3 . 把B的constructor指向指回来，constructor把构造函数的指向改回来
+    B.prototype.constructor = B; //constructor把构造函数的指向改回来
+
+//    B();//如果直接调用这个函数，不是new那么B的这个this就是wondow了
+
+    var oB1 = new B();  // new一个实例化对象的时候，那么B下的这个this指向这个对象
+    var oB2 = new B();
+    oB1.hobby.push("shopping");
+//    引用类型的 数组和对象在堆里oB1改  oB2也改了 同一块地址
+
+    console.log(oB1.name);
+    console.log(oB1.hobby);
+    console.log(B.constructor);//constructor会指向B的构造函数
+
+</script>
+</body>
+</html>

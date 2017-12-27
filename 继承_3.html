@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var str = 'abc';
+    var arr = [1,2,3];
+    var obj = {
+        name:'sss',
+        age :20
+    };
+    console.log(typeof arr);//打印出object，因为arr底层是new array，是new的对象
+
+//    判断数组
+//    arr.constructor 返回对象的构造函数
+    console.log(arr.constructor);//输出funtion Array()
+    console.log(obj.constructor);//输出funtion object()
+
+//    instanceof
+//    输出了true
+    console.log(arr instanceof Array);//instanceof是一个运算符，
+                 // 这句代码意思是看Array是否是构造函数的一个实例
+
+    console.log(obj instanceof Array); //返回false
+    console.log(arr  instanceof object); //返回true
+</script>
+</body>
+</html>
