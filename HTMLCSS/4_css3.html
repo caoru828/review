@@ -14,17 +14,29 @@
             -o-border-radius: 50%;
             border-radius: 50%;
         }
-        li:first-child{
+        li:first-child{  /*找规律用*/
             background: yellow;
+            height: 600px;
         }
         li:nth-child(2n){  /*把li按1开始排  取到偶数排列2.4.6.8*/
             background: blue;
         }
+        #demo:target{color:#f00;}
+        /*:target{*/
+            /*height: 200px;*/
+            /*background: #000;*/
+        /*}*/
         /*nth-child(5n + 1)  整个从1开始，n从0开始*/
+
     </style>
 </head>
 <body>
 <!-- css.chm-->
+
+
+<div id="demo">
+    <p>E:target伪类使用方法</p>
+</div>
 <div id="div1"></div>
 <ul>
     <li>2</li>
@@ -32,8 +44,18 @@
     <li>54</li>
     <li>54</li>
     <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
+    <li>54</li>
     <li>74</li>
     <li>99</li>
+    <a href="#div1">aaaa</a>
 </ul>
 </body>
 </html>
