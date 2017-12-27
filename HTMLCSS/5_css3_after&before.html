@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#div1::before{*/
+            /*content: "before";*/
+            /*background: red;*/
+            /*!*插入元素是块级元素*!*/
+            /*display: block;*/
+        /*}*/
+    #div1{
+        /*文本阴影*/
+        /*text-shadow: 10px 10px 10px #ff0000;*/
+        text-shadow: 10px 10px 10px rgba(255,0,0,.5);  /*垂直，水平，模糊程度，背景颜色*/
+        box-shadow: 10px 10px 10px 10px rgba(255,0,0,.5);  /*垂直，水平，模糊程度，外延值，背景颜色*/
+        width: 100px;
+        border: 1px solid #0000ff;
+        /*实现文本太多用。。。代替*/
+        overflow: hidden;
+        text-overflow: ellipsis;/*...*/
+        white-space: nowrap;/*不换行*/
+        /*font-family: 'diyfont';*/
+    }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: url("1.jpg") no-repeat;
+            border: 20px solid rgba(0,0,255,.3);
+            padding: 20px;
+            /*背景源点，背景图片从哪开始*/
+            background-origin: border-box;
+            background-clip: padding-box;/*背景从哪开始裁切*/
+            /*background-origin: padding-box;*/
+            /*background-origin:content-box;*/
+        }
+        #div4{
+            color: transparent;
+            background-image: url("1.jpg");
+            width: 500px;
+            height: 200px;
+            -webkit-background-clip: text;
+            font-size: 60px;
+            font-weight: 600;
+        }
+        /* @font-face {
+            font-family: 'diyfont';
+            src: url('diyfont.eot'); !* IE9+ *!
+            src: url('diyfont.eot?#iefix') format('embedded-opentype'), !* IE6-IE8 *!
+            url('diyfont.woff') format('woff'), !* chrome、firefox *!
+            url('diyfont.ttf') format('truetype'), !* chrome、firefox、opera、Safari, Android, iOS 4.2+*!
+            url('diyfont.svg#fontname') format('svg'); !* iOS 4.1- *!
+        }*/
+    </style>
+</head>
+<body>
+<h1 id="div1">
+    div55555555fasefasfasdfasdfasdf
+</h1>
+<div id="div2"></div>
+<div id="div4">beijing</div>
+</body>
+</html>
