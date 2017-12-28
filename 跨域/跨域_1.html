@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>跨域</title>
+</head>
+<body>
+
+
+<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4151748604,3513499534&fm=11&gp=0.jpg" alt="">
+<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<!--<script src="">-->
+<!--//    通过script属性src来支持跨域-->
+<!--//</script>-->
+<script>
+    $.get("http://www.baidu.com",{
+        name:"zanf"
+    });
+</script>
+
+<!--跨域（同源策略）->
+<!--
+
+有四种情况属于跨域
+
+www.a.com   www.b.com    //域名不同
+www.qq.com  news.qq.com  //主域子域     域名通过dns解析服务解析出来的IP地址，IP地址对应一台服务器  通过IP地址  域名访问是一个意思
+http://192.168.100:81  http://192.168.100:8081 //端口号不一样
+http://192.168.100     https://192.168.100     //协议不一样
+（超文本传输协议）        （安全超文本传输协议）
+
+-->
+
+<!-- 网址  阿里大于（短信服务）-->
+<!-- CDN 内容分发网络    用jQuery jQuery CDN节点
+优点：
+1.节省本地服务器空间
+2.cdn加速，把自己的图片放到别人服务器上，从别人的服务器上调用
+-->
+<!--<script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4151748604,35134
+在网页里边所有带src属性的都支持跨域
+这个允许跨域
+
+-->
+<!--
+解决跨域问题
+1.jsonp：json padding(json跨域方式，jsonp是一种格式)
+通过script的src加载另一个域的一个文件，通过src这个url用get方式把这个值从一个域传到另外一个域
+<script src="http://www.b.com/test.php?name=zhangsan&age = 18&callback=fn"></script>
+b域
+<?php
+    $username = $_GET["name"];
+    $age      = $_GET["age"];
+    $function = $_GET["function"];
+    <!--echo "$function('$username')";-->
+<!--将这个函数值传给a域-->
+    <!--echo "$callback('$username')";-->
+?>
+
+
+<!--2.iframe跨域-->
+<!--（iframe,在一个HTML文件里写出iframe标签，src是另一个HTMl，iframe就把另一个HTML嵌入到最开始的HTML里了）-->
+<!--
+不推荐使用iframe，因为缺点1.使dom结构变的复杂2.搜索引擎抓取不到iframe的内容
+3.服务器代理方式，（不通过前端直接通过后端发送数据请求，后端服务器没有跨域问题）
+4.postmessage（h5）
+
+-->
+
+<!--
+下面不属于跨域
+(同一个域名，同一个协议，不同文件不属于跨域)
+http://www.a.com/index1.html;
+http://www.a.com/index2.html;
+
+
+-->
+</body>
+</html>
