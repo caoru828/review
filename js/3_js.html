@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log((0.1+0.2)==0.3);//false  浮点数都是近似值，
+    console.log((10/3-3)==1/3);//false   近似值和近似值不相等
+    console.log((1).toString());
+    console.log(typeof (1).toString());
+
+    var nobj1=new Number(5);
+    var nobj2=new Number(5);
+    console.log(nobj1==nobj2);//flase,值相同，但是引用对象不同，堆
+    console.log(nobj1===nobj2);//flase,值相同，但是引用对象不同，堆
+    console.log(typeof  nobj1);
+    console.log(typeof 5);
+    console.log(nobj1==5); //object number值一样，类型不一样
+    console.log(nobj1==5);//object number值一样，类型不一样
+
+    var n1 = Number(88);
+    console.log(n1);
+    console.log(typeof n1);//number
+
+   var n2 = Number('88');
+    console.log(n2);
+    console.log(typeof n2);//强制转换成number
+
+    var n8 = Number('vsdvsdv');
+    console.log(n8);        //NaN
+    console.log(typeof n8);//强制转换成number
+
+    var n9 = new Number('vsdvsdv');
+    console.log(n9);        //NaN
+    console.log(typeof n9);//强制转换成object
+
+    Number.POSITIVE_INFINITY // Infinity
+    Number.NEGATIVE_INFINITY// Infinity
+    Number.NaN;//NaN
+
+//    在计算过程中出现了一次NaN，最终结果一定是NaN
+    console.log(NaN+1);
+    console.log(NaN*1);
+    console.log(NaN-1);
+
+//    NaN不和任何数值相等，NaN也不等于NaN
+    console.log(NaN==1);
+    console.log(NaN===1);
+    console.log(NaN==NaN);
+    console.log(NaN===NaN);
+//    判断NaN
+    console.log(isNaN(NaN));//true
+
+    console.log(isNaN('8'));//false
+    console.log(isNaN({}));//true
+
+    var nnobj = new Number(NaN);//NaN值的number对象
+    console.log(nnobj);        //number
+    console.log(typeof nnobj); //object
+
+//    isFinite如果 number 是有限数字（或可转换为有限数字），
+//    那么返回 true。否则，如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false。
+    document.write(isFinite(123)+ "<br />");
+    document.write(isFinite(-1.23)+ "<br />");
+    document.write(isFinite(5-2)+ "<br />");
+    document.write(isFinite(0)+ "<br />");
+    document.write(isFinite("Hello")+ "<br />");
+    document.write(isFinite("2005/12/12")+ "<br />");
+
+    console.log(isFinite(1))   // true
+    console.log(isFinite(NaN)) //false
+    console.log(isFinite(Infinity))//false
+    console.log(isFinite(-Infinity))//false
+
+
+
+
+</script>
+</body>
+</html>
