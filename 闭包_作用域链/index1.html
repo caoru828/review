@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>\</title>
+</head>
+<body>
+<!--闭包-->
+<!--
+    外部函数里边有个内部函数,内部函数想调用内部函数的局部变量
+    内部函数一直会被用到，所以内部函数的局部变量就不会被释放
+    不会回收这个变量，这个变量会一直保存在内存中，形成了闭包、
+
+-->
+<ul>
+    <li>44</li>
+    <li>55</li>
+    <li>666</li>
+    <li>77  </li>
+</ul>
+
+<script>
+    var aLi = document.getElementsByTagName('li');
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+//        for循环在页面一加载的时候就执行完了，而点击事件是点击的时候才执行
+//        aLi[i].onclick = function () {
+//            console.log(i);
+//            console.log(aLi.index);
+//        }
+        (function (idx) {
+            aLi[idx].onclick = function () {
+                console.log(idx++);
+            }
+        })(i)
+
+    }
+
+</script>
+
+
+</body>
+</html>
