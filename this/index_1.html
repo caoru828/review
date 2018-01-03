@@ -40,11 +40,13 @@
 //    obj.say();
     var oDiv = document.getElementById("div");
     var oDiv2 = document.getElementById("div2");
-    oDiv.onclick = function () {
-        console.log(this+"div");
+    oDiv.onclick = function (e) {
+        var target = e.target||window.event.srcElement;
+        console.log(target);  // 点的是谁target就是谁
+        console.log(this);    // 触发谁的事件
     }
     oDiv2.onclick = function () {
-        console.log(this + "div2");
+        console.log(this);
     }
 
 </script>
