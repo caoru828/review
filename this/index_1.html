@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    setTimeout(function(){
+        console.log(this)  //window  因为settimeout是window下边的一个方法
+    },10)
+
+    function aa() {
+        console.log(this) //window 因为在（window）全局下边声明的一个方法（函数），只是一个函数，并不是谁点方法
+    }
+    aa();
+
+    obj = {
+        name:'zhangdan',
+        say : function () {
+            console.log(this);
+        }
+    }
+    obj.say();
+</script>
+</body>
+</html>
