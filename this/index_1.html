@@ -3,27 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        #div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: blue;
+        }
+    </style>
 </head>
 <body>
-
+<div id="div">
+    <div id="div2"></div>
+</div>
 
 <script>
-    setTimeout(function(){
-        console.log(this)  //window  因为settimeout是window下边的一个方法
-    },10)
-
-    function aa() {
-        console.log(this) //window 因为在（window）全局下边声明的一个方法（函数），只是一个函数，并不是谁点方法
+//    setTimeout(function(){
+//        console.log(this)  //window  因为settimeout是window下边的一个方法
+//    },10)
+//
+//    function aa() {
+//        console.log(this) //window 因为在（window）全局下边声明的一个方法（函数），只是一个函数，并不是谁点方法
+//    }
+//    aa();
+//
+//    obj = {
+//        name:'zhangdan',
+//        say : function () {
+//            console.log(this);
+//        }
+//    }
+//    obj.say();
+    var oDiv = document.getElementById("div");
+    var oDiv2 = document.getElementById("div2");
+    oDiv.onclick = function () {
+        console.log(this+"div");
     }
-    aa();
-
-    obj = {
-        name:'zhangdan',
-        say : function () {
-            console.log(this);
-        }
+    oDiv2.onclick = function () {
+        console.log(this + "div2");
     }
-    obj.say();
+
 </script>
 </body>
 </html>
