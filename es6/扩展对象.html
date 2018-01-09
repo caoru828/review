@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function foo(...arg){
+        console.log(arg)
+    }
+    let obj1 = {
+      name:'zhandan',
+      age : 18
+    };
+    let obj2 = {
+        name:'ll',
+        age :20
+    };
+//    foo(obj1,obj2);
+
+     let obj3 = {...obj1,obj2}
+    console.log(obj3)
+</script>
+</body>
+</html>
