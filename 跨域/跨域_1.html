@@ -48,6 +48,14 @@ http://192.168.100     https://192.168.100     //协议不一样
 解决跨域问题
 1.jsonp：json padding(json跨域方式，jsonp是一种格式)
 通过script的src加载另一个域的一个文件，通过src这个url用get方式把这个值从一个域传到另外一个域
+script标签不会判断你引入的设么文件，只要js能执行就行
+
+js的function aa（可以传json格式的对象）  // 属性比较多的时候
+后边调用前端的函数的时候，前端可以在通过jsonp的src、get传函数名的时候将函数明写成callback=函数名
+
+实现：利用script标签的src属性，支持跨域，通过后台接口返回一个回调函数的调用，     函数是声明在我们页面的回调函数
+也可以动态生成script标签
+
 <script src="http://www.b.com/test.php?name=zhangsan&age = 18&callback=fn"></script>
 b域
 <?php
@@ -61,10 +69,28 @@ b域
 
 
 <!--2.iframe跨域-->
+<!--iframe 元素会创建包含另外一个文档的内联框架（即行内框架）。-->
+<!--描述与实现： 在a域下的index.html通过iframe去访问b域下的index.php，get传参。b域能接收到这个参数，
+    调用父级页面方法涉及跨域问题，（top。aa），再在a域下建一个index2.php文件,把b域参数传到a域下的index2.php
+    ，再调用top方法-->
+
+
 <!--（iframe,在一个HTML文件里写出iframe标签，src是另一个HTMl，iframe就把另一个HTML嵌入到最开始的HTML里了）-->
+<!--iframe 把代码直接写在body里而且不执行代码，在外边套一个script标签  ，  而且子页面里的不能直接访问父元素的方法，就得用top
+
+echo "<script>top.bb("dff") </script>"
+-->
+
 <!--
 不推荐使用iframe，因为缺点1.使dom结构变的复杂2.搜索引擎抓取不到iframe的内容
-3.服务器代理方式，（不通过前端直接通过后端发送数据请求，后端服务器没有跨域问题）
+
+3.利用后端实现：（不通过前端在本域下直接通过后端发送数据请求，后台在传给b域的后台，（后端服务器没有跨域问题）
+  计算完后返回我们的后台，再通过后台传给前台  ，  a前--》a后--》b后（算）--》a后--》a前 ）
+
+4.服务器代理方式：在后台最前面加个请求头，允许跨域的请求头：header("Access-Control-Allow-Origin:http://www.a.com");
+
+同源策略：只允许相同域下访问数据；
+
 4.postmessage（h5）//兼容
 5.window.name///?///
 6.doman/////
